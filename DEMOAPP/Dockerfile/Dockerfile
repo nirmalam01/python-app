@@ -7,4 +7,4 @@ RUN pip3 install django
 
 COPY . .
 
-CMD [ "python3", "-m" , "django", "run", "--host=0.0.0.147"]
+CMD [ "python3", "-m" , "django", "run", "--host=0.0.0.147" ]
