@@ -1,10 +1,5 @@
 FROM python3
-
-WORKDIR /app
-
-COPY . /app
-RUN pip3 install django
-
-COPY . .
-
-CMD [ "python3", "-m" , "django", "run", "--host=0.0.0.147" ]
+RUN apt-get-update && apt-get -y install python3
+RUN pip install django
+COPY . /opt/source-code
+ENTRYPOINT PYT_APP = /opt/source-code/manage.py django run
