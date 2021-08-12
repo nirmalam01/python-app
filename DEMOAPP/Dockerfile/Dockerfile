@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM python3
+ADD manage.py /
 COPY . /app
-RUN make /python-app
-CMD python3 /DEMOAPP/manage.py
-
+RUN pip install django
+CMD ["python3","./manage.py"]
 
