@@ -1,11 +1,11 @@
 FROM python3
+WORKDIR /DEMOAPP
+RUN pip install --upgrade pip
+COPY requirements.txt /DEMOAPP
 
-RUN apt-get update && apt install -y --no-install-recommends \
-    git \
-    wget \
-    openjdk-11-jdk \
-    python3 \
-    && rm -rf /var/lib/apt/lists/*
-RUN pip install django
-COPY . /opt/source-code
-ENTRYPOINT PYT_APP = /opt/source-code/manage.py django run
+RUN pip install -r requirements.txt
+COPY . /code/
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
