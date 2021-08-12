@@ -1,6 +1,6 @@
 FROM python3
 
-RUN apt update && apt install -y --no-install-recommends \
+RUN apt-get update && apt install -y --no-install-recommends \
     git \
     wget \
     openjdk-11-jdk \
